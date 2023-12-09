@@ -239,8 +239,21 @@
         }<br>
         </h4>
     <h4>12ed.</h4>
-    <img src="3.png" style="width:800px">
-    <h4></h4>
+    <img src="13.png" style="width:800px">
+    <h4>// fragShader.frag<br>
+        precision mediump float;<br>
+        uniform vec2 u_resolution;<br>
+        uniform float u_time;<br>
+        
+        void main() {<br>
+            vec2 uv = gl_FragCoord.xy / u_resolution.xy;<br>
+            float grid = sin(uv.x * 20.0) * cos(uv.y * 20.0);<br>
+            grid = smoothstep(0.1, 0.11, grid) - smoothstep(0.12, 0.13, grid);<br>
+            vec3 color = vec3(grid, grid, grid);<br>
+        
+            gl_FragColor = vec4(color, 1.0);<br>
+        }<br>
+        </h4>
     <h4>13rd.</h4>
     <img src="3.png" style="width:800px">
     <h4></h4>
