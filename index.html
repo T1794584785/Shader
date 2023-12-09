@@ -255,8 +255,23 @@
         }<br>
         </h4>
     <h4>13rd.</h4>
-    <img src="3.png" style="width:800px">
-    <h4></h4>
+    <img src="14.png" style="width:800px">
+    <h4>// fragShader.frag<br>
+        precision mediump float;<br>
+        uniform vec2 u_resolution;<br>
+        uniform float u_time;<br>
+        
+        void main() {<br>
+            vec2 uv = (2.0 * gl_FragCoord.xy - u_resolution) / min(u_resolution.x, u_resolution.y);<br>
+            float z = 1.0 / max(0.0001, uv.y + 1.0);<br>
+            float x = uv.x * z;<br>
+            float y = u_time + z;<br>
+            float pattern = sin(x * 10.0) * cos(y * 10.0);<br>
+            pattern = smoothstep(0.1, 0.15, pattern) - smoothstep(0.2, 0.25, pattern);<br>
+            vec3 color = vec3(pattern * 0.8, pattern * 0.5, pattern);<br>
+            gl_FragColor = vec4(color, 1.0);<br>
+        }<br>
+        </h4>
     <h4>14th.</h4>
     <img src="3.png" style="width:800px">
     <h4></h4>
