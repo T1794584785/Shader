@@ -45,6 +45,21 @@
             fragColor = vec4(color, 1.0);<br>
         }<br>
         </h4>
+    <h4>2nd.</h4>
+    <img src="1.png" style="width:800px">
+    <h4>
+        void mainImage(out vec4 fragColor, in vec2 fragCoord) {<br>
+            vec2 uv = (fragCoord - 0.5 * iResolution.xy) / iResolution.y;<br>
+            float dist = length(uv);<br>
+            float ripple = sin(dist * 10.0 - iTime * 2.0) * 0.5 + 0.5;<br>
+            
+            
+            float minColor = 0.2; <br>
+            vec3 color = vec3(minColor + ripple * 0.5, minColor + ripple * 0.3, minColor + ripple);<br>
+        
+            fragColor = vec4(color, 1.0);<br>
+        }<br>  
+    </h4>
     </div>
 </body>
 </html>
