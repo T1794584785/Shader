@@ -134,8 +134,26 @@
     }<br>
     </h4>
     <h4>7th.</h4>
-    <img src="3.png" style="width:800px">
-    <h4></h4>
+    <img src="7.png" style="width:800px">
+    <h4>vec3 liquidDynamics(vec2 uv, float time) {<br>
+        float x = uv.x + sin(time) * 0.5;<br>
+        float y = uv.y + cos(time) * 0.5;<br>
+        float pattern = sin(x * 10.0) * cos(y * 10.0);<br>
+        return vec3(sin(pattern), cos(pattern), sin(pattern) * cos(pattern));<br>
+    }<br>
+    
+    void mainImage(out vec4 fragColor, in vec2 fragCoord) {<br>
+        vec2 uv = fragCoord/iResolution.xy;<br>
+        vec3 color = liquidDynamics(uv, iTime);<br>
+        fragColor = vec4(color, 1.0);<br>
+    }<br>
+
+    <h1>After some simple try in Shadertoy, I try to use p5.js to create some shader effect.</h1>
+    <h1>In p5.js, fragShader.frag and vertShader.vert are needed</h1>
+    <img src="8.png" style="width:500px">
+
+
+    </h4>
     <h4>8th.</h4>
     <img src="3.png" style="width:800px">
     <h4></h4>
