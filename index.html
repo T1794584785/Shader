@@ -119,8 +119,20 @@
         }<br>
         </h4>
     <h4>6th.</h4>
-    <img src="3.png" style="width:800px">
-    <h4></h4>
+    <img src="6.png" style="width:800px">
+    <h4>vec3 galaxyRotation(vec2 uv, float time) {<br>
+        float angle = atan(uv.y, uv.x) + time;<br>
+        float radius = length(uv);<br>
+        float spiral = cos(angle * 3.0 - radius * 5.0) * 0.5 + 0.5;<br>
+        return vec3(spiral, radius * spiral, 0.5);<br>
+    }<br>
+    
+    void mainImage(out vec4 fragColor, in vec2 fragCoord) {<br>
+        vec2 uv = (fragCoord - 0.5 * iResolution.xy) / iResolution.y;<br>
+        vec3 color = galaxyRotation(uv, iTime);<br>
+        fragColor = vec4(color, 1.0);<br>
+    }<br>
+    </h4>
     <h4>7th.</h4>
     <img src="3.png" style="width:800px">
     <h4></h4>
