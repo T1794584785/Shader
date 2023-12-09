@@ -89,11 +89,35 @@
         
     </h4>
     <h4>4th.</h4>
-    <img src="3.png" style="width:800px">
-    <h4></h4>
+    <img src="4.png" style="width:800px">
+    <h4>
+        vec3 oceanWaves(vec2 uv, float time) {<br>
+            float wave = sin(uv.x * 10.0 + time) * cos(uv.y * 10.0 + time) * 0.5 + 0.5;<br>
+            return vec3(wave, wave * 0.7, 1.0);<br>
+        }<br>
+        
+        void mainImage(out vec4 fragColor, in vec2 fragCoord) {<br>
+            vec2 uv = (fragCoord - 0.5 * iResolution.xy) / iResolution.y;<br>
+            vec3 color = oceanWaves(uv, iTime);<br>
+            fragColor = vec4(color, 1.0);<br>
+        }<br>
+        </h4>
     <h4>5th.</h4>
-    <img src="3.png" style="width:800px">
-    <h4></h4>
+    <img src="5.png" style="width:800px">
+    <img src="5.1.png" style="width:800px">
+    <h4>
+        vec3 abstractArt(vec2 uv, float time) {<br>
+            float pattern = abs(sin(uv.x * sin(time) * 10.0) * cos(uv.y * cos(time) * 10.0));<br>
+            return vec3(pattern, pattern * 0.5, 1.0 - pattern);<br>
+        }<br>
+        
+        void mainImage(out vec4 fragColor, in vec2 fragCoord) {<br>
+            vec2 uv = fragCoord/iResolution.xy;<br>
+            vec3 color = abstractArt(uv, iTime);<br>
+            fragColor = vec4(color, 1.0);
+            fragColor = vec4(color, 1.0);
+        }<br>
+        </h4>
     <h4>6th.</h4>
     <img src="3.png" style="width:800px">
     <h4></h4>
