@@ -273,8 +273,21 @@
         }<br>
         </h4>
     <h4>14th.</h4>
-    <img src="3.png" style="width:800px">
-    <h4></h4>
+    <img src="15.png" style="width:800px">
+    <h4>// fragShader.frag<br>
+        precision mediump float;<br>
+        uniform vec2 u_resolution;<br>
+        uniform float u_time;<br>
+        
+        void main() {<br>
+            vec2 uv = gl_FragCoord.xy / u_resolution.xy * 2.0 - 1.0;<br>
+            uv.x *= u_resolution.x / u_resolution.y;<br>
+            float wave = sin(uv.x * 10.0 + u_time) * cos(uv.y * 10.0 + u_time);<br>
+            wave = 0.5 + 0.5 * wave;<br>
+            vec3 color = vec3(wave, sin(wave + u_time), cos(wave + u_time));<br>
+            gl_FragColor = vec4(color, 1.0);<br>
+        }
+        </h4>
     </div>
 </body>
 </html>
