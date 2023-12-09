@@ -155,8 +155,28 @@
 
     </h4>
     <h4>8th.</h4>
-    <img src="3.png" style="width:800px">
-    <h4></h4>
+    <img src="9.png" style="width:800px">
+    <h4>// fragShader.frag<br>
+        precision mediump float;<br>
+        uniform vec2 u_resolution;<br>
+        
+        void main() {<br>
+           
+            float x = gl_FragCoord.x / u_resolution.x;<br>
+        
+           
+            vec4 black = vec4(0.0, 0.0, 0.0, 1.0);<br>
+            vec4 orange = vec4(1.0, 0.5, 0.0, 1.0);<br>
+        
+           
+            vec4 color = mix(black, orange, x);<br>
+        
+            /<br>
+            gl_FragColor = color;<br>
+        }<br>
+        
+        
+    </h4>
     <h4>9th.</h4>
     <img src="3.png" style="width:800px">
     <h4></h4>
