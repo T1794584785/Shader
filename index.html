@@ -61,6 +61,60 @@
         }<br>  
     </h4>
     <h4>3rd.</h4>
+    <img src="3.png" style="width:800px">
+    <h4>
+        float rand(vec2 co) {<br>
+            return fract(sin(dot(co.xy, vec2(12.9898, 78.233))) * 43758.5453);<br>
+        }<br>
+        
+        
+        vec3 starrySky(vec2 uv) {<br>
+            float n = rand(floor(uv * 50.0)); <br>
+            return vec3(n > 0.95); <br>
+        }<br>
+        
+        vec3 shootingStar(vec2 uv, float time) {<br>
+            vec2 p = uv + vec2(-0.5, -0.5);<br>
+            float len = length(p);<br>
+            float star = max(0.0, 1.0 - len * 10.0 + sin(time + len * 10.0) * 0.5);<br>
+            return vec3(star); <br>
+        }<br>
+        
+        void mainImage(out vec4 fragColor, in vec2 fragCoord) {<br>
+            vec2 uv = fragCoord/iResolution.xy;<br>
+            vec3 color = starrySky(uv);<br>
+            color += shootingStar(uv, iTime);<br>
+            fragColor = vec4(color, 1.0);<br>
+        }<br>
+        
+    </h4>
+    <h4>4th.</h4>
+    <img src="3.png" style="width:800px">
+    <h4></h4>
+    <h4>5th.</h4>
+    <img src="3.png" style="width:800px">
+    <h4></h4>
+    <h4>6th.</h4>
+    <img src="3.png" style="width:800px">
+    <h4></h4>
+    <h4>7th.</h4>
+    <img src="3.png" style="width:800px">
+    <h4></h4>
+    <h4>8th.</h4>
+    <img src="3.png" style="width:800px">
+    <h4></h4>
+    <h4>9th.</h4>
+    <img src="3.png" style="width:800px">
+    <h4></h4>
+    <h4>10th.</h4>
+    <img src="3.png" style="width:800px">
+    <h4></h4>
+    <h4>11th.</h4>
+    <img src="3.png" style="width:800px">
+    <h4></h4>
+    <h4>12th.</h4>
+    <img src="3.png" style="width:800px">
+    <h4></h4>
     </div>
 </body>
 </html>
